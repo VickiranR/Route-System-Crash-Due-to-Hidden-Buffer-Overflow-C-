@@ -11,7 +11,7 @@ public:
     RouteManager() : count(0) {}
 
     void addWaypointUnsafe(int wp) {
-        // Hidden bug: no bounds check!
+        // Hidden bug: no bounds check! ---> FIX: Add if (count < MAX_WAYPOINTS) 
         waypoints[count] = wp;
         count++;  // Will go above MAX_WAYPOINTS eventually
     }
