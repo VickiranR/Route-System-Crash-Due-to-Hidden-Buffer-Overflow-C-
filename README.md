@@ -35,3 +35,12 @@ A fixed-size array is used internally by a `RouteManager` class to store waypoin
 ```bash
 g++ -g -o route_bug route_crash_demo.cpp
 ./route_bug
+
+**How to test:**
+In OnlineGDB, Go to ⚙️ Extra Compiler Flags and enter:
+-fsanitize=address -g
+Run the program.
+
+Expected Result:
+ASan will detect a stack buffer overflow when the loadWaypoints method writes past waypoints[MAX_WAYPOINTS-1] and print an error like:
+==ERROR: AddressSanitizer: stack-buffer-overflow on address ...
